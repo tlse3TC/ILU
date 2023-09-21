@@ -34,7 +34,7 @@ public class Gaulois {
 //	}
 	
 	public static void main(String[] args) {
-		asterix(nom = "Asterix", force = 8);
+		Gaulois asterix = new Gaulois("Asterix",8);
 		System.out.println(asterix);
 	}
 
