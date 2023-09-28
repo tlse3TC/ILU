@@ -30,4 +30,9 @@ public class Romain {
 		}
 		
 	}
+	public static void main(String[] args) {
+		Romain minus= new Romain("Minus",2);
+		minus.parler("Bonjour");
+		minus.recevoirCoup(2);
+	}
 }
