@@ -4,13 +4,17 @@ public class Gaulois {
 	private String nom;
 	private int force;
 	
+	//tp3
+	private int nbTrophees;
+	private Equipement[] trophees = new Equipement[100];
+	//tp3
+	
 	private int effetPotion =1;
 	
 	public Gaulois (String nom, int force) {
 		this.nom = nom;
 		this.force = force;
-		//temporary
-		this.effetPotion = effetPotion;
+		
 	}
 	
 	public String getNom() {
@@ -21,17 +25,41 @@ public class Gaulois {
 		System.out.println(prendreParole() + "<< " + texte + ">>");
 	}
 	
+	
+	//tp3
 	public String prendreParole() {
 		return "Le gaulois " + nom + " : ";
 	}
 	
+	
 	public void frapper(Romain romain) {
-		System.out.println(nom + " Envoie un grand coup dans la machoire de " + romain.getnom());
-		romain.recevoirCoup(force/(3*effetPotion));
+		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
+		Equipement[] trophees = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; trophees != null && i < trophees.length; i++,nbTrophees++) {
+			this.trophees[nbTrophees] = trophees[i];
+			}
+		}
+
+	
+	
+	public void faireUneDonation(Musee musee) {
+		if (nbTrophees>0) {
+			parler("Je donne tout mes trophes: ");
+			for (int i=0;i!=nbTrophees;i++) {System.out.println(trophees[i]);}
+		} else {
+			parler("je n'ai pas de trophee");
+		}
 	}
 	
+	
+	//tp3
+//	public void frapper(Romain romain) {
+//		System.out.println(nom + " Envoie un grand coup dans la machoire de " + romain.getnom());
+//		romain.recevoirCoup(force/(3*effetPotion));
+//	}
+	
 	public void boirePotion(int forcePotion) {
-		this.effetPotion=forcePotion;
+		effetPotion=forcePotion;
 		parler("Merci Druide, je sens que ma force est " +forcePotion+ " fois decuplee");
 	}
 	
