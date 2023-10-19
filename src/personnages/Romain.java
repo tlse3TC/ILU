@@ -54,8 +54,9 @@ public class Romain {
 		
 		if (force>0) {
 				parler("Aie");
-		} else {
 				equipementEjecte = ejecterEquipement();
+		} else {
+				
 				parler("J'abandonne...");
 			}
 			// post condition la force a diminuée
@@ -94,7 +95,7 @@ public class Romain {
 		System.out.println("L'équipement de " + nom + "s'envole sous la force du coup.");
 		//TODO
 		int nbEquipementEjecte = 0;
-		for (int i = 0; i <= nbEquipement; i++) {
+		for (int i = 0; i < nbEquipement; i++) {
 			if (equipements[i] != null) {
 				equipementEjecte[nbEquipementEjecte] = equipements[i];
 				nbEquipementEjecte++;
